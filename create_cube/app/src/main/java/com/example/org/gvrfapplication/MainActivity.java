@@ -28,8 +28,16 @@ public class MainActivity extends GVRActivity {
         @Override
         public void onInit(GVRContext gvrContext) throws Throwable {
 
+            //Use GVRF logo as background
+            GVRTexture texture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, R.drawable.__default_splash_screen__));
+            GVRSceneObject quad = new GVRSceneObject(gvrContext, 4, 2, texture);
+            quad.getTransform().setPosition(0, 0, -3);
+            gvrContext.getMainScene().addSceneObject(quad);
+
+
             GVRCubeSceneObject cube_obj = new GVRCubeSceneObject(gvrContext);
             cube_obj.getRenderData().getMaterial().setColor(1, 0, 0);
+            cube_obj.getTransform().setPosition(0, -1, -2);
             gvrContext.getMainScene().addSceneObject(cube_obj);
 
         }
