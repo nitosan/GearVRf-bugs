@@ -39,13 +39,18 @@ public class MainActivity extends GVRActivity {
             gvrContext.getMainScene().addSceneObject(quad);
 
             GVRMesh dinoMesh = gvrContext.getAssetLoader().loadMesh(new GVRAndroidResource(gvrContext, "trex_mesh.fbx"));
-            //GVRTexture dinoTexture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "trex_tex_diffuse.png"));
-            GVRTexture dinoTexture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "trex_tex_diffuse.pkm"));
+            GVRTexture dinoTexture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "trex_tex_diffuse.png"));
+            GVRTexture dinoTexture_etc = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "trex_tex_diffuse.pkm"));
 
             GVRSceneObject dinoObj = new GVRSceneObject(gvrContext, dinoMesh, dinoTexture);
-            dinoObj.getTransform().setPosition(0,0,-10);
+            dinoObj.getTransform().setPosition(-5,0,-10);
             dinoObj.getTransform().rotateByAxis(-90, 1f, 0f, 0f);
             gvrContext.getMainScene().addSceneObject(dinoObj);
+
+            GVRSceneObject dinoObj_etc = new GVRSceneObject(gvrContext, dinoMesh, dinoTexture_etc);
+            dinoObj_etc.getTransform().setPosition(5,0,-10);
+            dinoObj_etc.getTransform().rotateByAxis(-90, 1f, 0f, 0f);
+            gvrContext.getMainScene().addSceneObject(dinoObj_etc);
         }
 
         @Override
